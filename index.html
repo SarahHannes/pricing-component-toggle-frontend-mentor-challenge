@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Pricing Component with Toggle</title>
+  </head>
+  <body>
+    <main>
+      <h1>Our Pricing</h1>
+
+      <!-- Toggle -->
+      <div class="toggle-container debug">
+        <div class="annually">Annually</div>
+        <label for="price-selection" class="toggle">
+          <input type="checkbox" id="price-selection" class="toggle__input" />
+          <div class="toggle__fill"></div>
+        </label>
+        <div class="monthly">Monthly</div>
+      </div>
+
+      <!-- Pricing Boxes -->
+      <div class="box-container">
+        <!-- Basic -->
+        <div class="basic box-option debug">
+          <div class="option-name">Basic</div>
+
+          <!-- price -->
+          <div class="price-container">
+            <span class="currency">$</span>
+            <span class="price basic-price">199.99</span>
+          </div>
+
+          <!-- details -->
+          <div class="details-container">
+            <div>500 GB Storage</div>
+            <div>2 User Allowed</div>
+            <div>Send up to 3 GB</div>
+            <div><button>LEARN MORE</button></div>
+          </div>
+        </div>
+
+        <!-- Professional -->
+        <div class="middle">
+          <div class="professional box-option debug">
+            <div class="option-name middle-text">Professional</div>
+
+            <!-- price -->
+            <div class="price-container">
+              <span class="currency middle-text">$</span>
+              <span class="price middle-text pro-price">249.99</span>
+            </div>
+
+            <!-- details -->
+            <div class="details-container">
+              <div class="middle-text">1 TB Storage</div>
+              <div class="middle-text">5 Users Allowed</div>
+              <div class="middle-text">Send up to 10 GB</div>
+              <div><button class="middle-button">LEARN MORE</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master -->
+        <div class="master box-option debug">
+          <div class="option-name">Master</div>
+
+          <!-- price -->
+          <div class="price-container">
+            <span class="currency">$</span>
+            <span class="price master-price">399.99</span>
+          </div>
+
+          <!-- details -->
+          <div class="details-container">
+            <div>2 TB Storage</div>
+            <div>10 Users Allowed</div>
+            <div>Send up to 20 GB</div>
+            <div><button>LEARN MORE</button></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>

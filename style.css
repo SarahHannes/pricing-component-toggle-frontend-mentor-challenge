@@ -1,0 +1,292 @@
+/* -------------- Reset -------------- */
+
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  font-family: "Montserrat", serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* -------------- Colors -------------- */
+
+:root {
+  --linear-gradient-start: #a3a8f0;
+  --linear-gradient-end: #696fdd;
+  --very-light-grayish-blue: #f6f6fe;
+  --light-grayish-blue: #b3b5c6;
+  --grayish-blue: #6d708d;
+  --dark-grayish-Blue: #494c5f;
+  --linear-gradient: linear-gradient(
+    to right,
+    var(--linear-gradient-start),
+    var(--linear-gradient-end)
+  );
+}
+
+/* -------------- Styling -------------- */
+
+body {
+  background-color: var(--very-light-grayish-blue);
+  background-image: url(/images/bg-top.svg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top -30px right -200px;
+  width: 375px;
+}
+
+main {
+  margin: 5px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 30px auto;
+  color: var(--grayish-blue);
+}
+
+/* ------- Toggle ------- */
+.toggle-container {
+  user-select: none;
+  margin-bottom: 50px;
+
+  display: flex;
+  align-items: center;
+
+  color: var(--light-grayish-blue);
+}
+
+.toggle-container > div {
+  padding: 20px 20px 0 20px;
+}
+
+.toggle {
+  --width: 60px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+
+  /* left+right margin gaps to make the inner circle smaller than the toggle */
+  --gap: calc(var(--width) / 9);
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* to hide the checkbox without display: none --> doing this will not make it keyboard toggle-able */
+.toggle__input {
+  width: 0;
+  height: 0;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: var(--linear-gradient);
+  transition: background 0.2s;
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border: 1px solid var(--linear-gradient);
+  border-radius: var(--border-radius);
+  background: #fff;
+  transition: transform 0.2s;
+
+  /* to make the inner circle nested within the toggle */
+  margin: calc(var(--gap) / 2);
+  height: calc(var(--height) - var(--gap));
+  width: calc(var(--height) - var(--gap));
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+.toggle__fill:hover {
+  opacity: 0.5;
+}
+
+/* outline doesn't mess up the element's own width, height as opposed to border */
+.toggle__input:focus ~ .toggle__fill {
+  outline: 2px solid var(--grayish-blue);
+}
+/* ------- Pricing Boxes ------- */
+
+.box-container {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.box-option {
+  background: white;
+  text-align: center;
+
+  width: 340px;
+  height: 450px;
+  padding: 30px;
+
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  box-shadow: 2px 1px 9px 0.5px rgb(179, 181, 198, 0.4);
+}
+
+.option-name {
+  color: var(--grayish-blue);
+  font-size: 1.2rem;
+}
+
+/* Price */
+.price-container {
+  width: 100%;
+  color: var(--dark-grayish-Blue);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.price {
+  font-size: 5rem;
+}
+
+.currency {
+  font-size: 3rem;
+  margin-right: 0;
+}
+
+/* ------- Details ------- */
+.details-container {
+  height: 65%;
+  margin-top: 20px;
+  color: var(--grayish-blue);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.details-container > div {
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid var(--light-grayish-blue);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 40px;
+
+  background: var(--linear-gradient);
+  border: 1px solid white;
+  border-radius: 8px;
+
+  letter-spacing: 0.2rem;
+  color: white;
+}
+
+button:hover {
+  background: white;
+  color: var(--linear-gradient-end);
+  border: 1px solid var(--linear-gradient-end);
+  cursor: pointer;
+}
+
+/* ------- Middle box ------- */
+.middle > .box-option {
+  background: var(--linear-gradient);
+  color: var(--very-light-grayish-blue);
+}
+
+.middle-text {
+  color: var(--very-light-grayish-blue);
+}
+
+.middle-button {
+  background: var(--very-light-grayish-blue);
+  color: var(--linear-gradient-end);
+}
+
+.middle-button:hover {
+  background: var(--linear-gradient);
+  color: white;
+  border: 1px solid white;
+}
+
+/* ------- Utilities ------- */
+.debug {
+  /* border: 1px solid blue; */
+  border: none;
+}
+
+/* ------- Desktop ------- */
+@media screen and (min-device-width: 1440px) {
+  body {
+    width: 100%;
+    background-image: url(/images/bg-top.svg), url(/images/bg-bottom.svg);
+    background-repeat: no-repeat;
+    background-position: top right, bottom left;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* Toggle */
+  .toggle {
+    --width: 70px;
+  }
+
+  .toggle-container > div {
+    font-size: 1.2rem;
+  }
+
+  /* Pricing boxes */
+  .box-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .box-option {
+    padding: 30px 30px;
+  }
+
+  /* First box */
+  .box-option:nth-child(1) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  /* Second box */
+  .middle > .box-option {
+    width: 350px;
+    height: 510px;
+    padding-top: 45px;
+    border-radius: 10px;
+    flex: 1;
+  }
+
+  /* Third box */
+  .box-option:nth-child(3) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
