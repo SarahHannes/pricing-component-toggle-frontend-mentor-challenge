@@ -31,7 +31,7 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 
-### What I learned
+### What I learned 🧗‍♀️
 
 1. Checkboxes should not use `display: none`, as it prevents keyboard navigation and toggling.
 
